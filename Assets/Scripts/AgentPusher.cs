@@ -1,6 +1,8 @@
 using UnityEngine;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
+using Unity.MLAgents.Sensors;
+using static UnityEngine.GraphicsBuffer;
 
 public class AgentPusher : Agent
 {
@@ -10,8 +12,9 @@ public class AgentPusher : Agent
 
     [HideInInspector]
     public Rigidbody agentRb;
+    private GameObject m_target;
 
-
+    public GridSensorComponent m_sensor;
     public override void Initialize()
     {
         agentRb = GetComponent<Rigidbody>();
@@ -65,6 +68,20 @@ public class AgentPusher : Agent
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         MoveAgent(actionBuffers.DiscreteActions);
+
+        /*
+        var newDist = (transform.position - m_target.transform.position).magnitude;
+
+        if (newDist < 0.1f)
+        {
+            AddReward(1f);
+            //EndEpisode();
+        }
+        else
+        {
+            SetReward(-0.01f);
+        }
+        */
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -103,4 +120,10 @@ public class AgentPusher : Agent
     {
     }
 
-}
+
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        //sensor.AddObservation(transform.position - m_target.transform.position);
+    }
+
+    }
