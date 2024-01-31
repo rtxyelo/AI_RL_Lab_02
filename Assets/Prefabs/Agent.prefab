@@ -132,8 +132,24 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 5000
   agentRb: {fileID: 0}
+  collideWithBlock:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameEnvController, Assembly-CSharp
+        m_MethodName: OnCollideWithBlock
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_envController: {fileID: 0}
 --- !u!114 &3600611686303545658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,19 +178,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SensorName: GridSensor
-  m_CellScale: {x: 1, y: 0.01, z: 1}
-  m_GridSize: {x: 16, y: 1, z: 16}
+  m_CellScale: {x: 1, y: 1, z: 1}
+  m_GridSize: {x: 20, y: 1, z: 20}
   m_RotateWithAgent: 1
   m_AgentGameObject: {fileID: 1630552956286426362}
   m_DetectableTags:
   - button
+  - wall
+  - goal
+  - block
+  - door
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1
   m_MaxColliderBufferSize: 500
   m_InitialColliderBufferSize: 4
   m_DebugColors:
-  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0.9245283, g: 0.15263437, b: 0.15263437, a: 1}
+  - {r: 0, g: 0.21038437, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.2398057, a: 1}
+  - {r: 1, g: 0.8759048, b: 0, a: 1}
+  - {r: 1, g: 0.06132078, b: 0.7813927, a: 1}
   m_GizmoYOffset: 0
   m_ShowGizmos: 1
   m_CompressionType: 1

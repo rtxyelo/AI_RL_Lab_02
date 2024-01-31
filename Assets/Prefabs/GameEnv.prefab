@@ -406,7 +406,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5643912208897456261}
         m_TargetAssemblyTypeName: GameEnvController, Assembly-CSharp
-        m_MethodName: OnGoalTriggered
+        m_MethodName: OnButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -416,6 +416,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onDoorOpenByBlock:
+    m_PersistentCalls:
+      m_Calls: []
+  onDoorClose:
+    m_PersistentCalls:
+      m_Calls: []
+  onDoorCloseByBlock:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4810269209036627071
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +759,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3453493731015273174
 Transform:
   m_ObjectHideFlags: 0
@@ -877,6 +886,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Agent
       objectReference: {fileID: 0}
+    - target: {fileID: 4637166413021281441, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: m_envController
+      value: 
+      objectReference: {fileID: 5643912208897456261}
+    - target: {fileID: 4637166413021281441, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: collideWithBlock.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4637166413021281441, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: collideWithBlock.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5643912208897456261}
     - target: {fileID: 6269347166793439761, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0027599335
@@ -915,6 +936,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6269347166793439761, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683467027590471554, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: m_DebugColors.Array.data[1].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683467027590471554, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: m_DebugColors.Array.data[1].g
+      value: 0.990005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683467027590471554, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: m_DebugColors.Array.data[1].r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683467027590471554, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: m_DebugColors.Array.data[3].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683467027590471554, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: m_DebugColors.Array.data[3].g
+      value: 0.25355005
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683467027590471554, guid: 8f1f9b47d3cf3eb4a8930d6c3d258d0e, type: 3}
+      propertyPath: m_DebugColors.Array.data[3].r
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

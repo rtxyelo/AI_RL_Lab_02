@@ -31,13 +31,39 @@ public class Button : DoorActivator
             mesh.material = pressedMaterial;
             onActivate.Invoke();
         }
+        if (collision.gameObject.CompareTag("block"))
+        {
+            onActivateByBlock.Invoke();
+        }
     }
-    void OnCollisionExit(Collision collision) {
+
+    public void ResetButton()
+    {
+        state = ButtonStates.Unpressed;
+        mesh.material = unpressedMaterial;
+        collisionsCount = 0;
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
         collisionsCount--;
-        if (collisionsCount <= 0 && state == ButtonStates.Pressed) {
+        if (collisionsCount <= 0 && state == ButtonStates.Pressed)
+        {
             state = ButtonStates.Unpressed;
             mesh.material = unpressedMaterial;
             onDeactivate.Invoke();
         }
+        //if (collision.gameObject.CompareTag("block"))
+        //{
+        //    onDeactivateByBlock.Invoke();
+        //}
     }
+
+    //void OnCollisionStay(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("block"))
+    //    {
+    //        onActivateByBlock.Invoke();
+    //    }
+    //}
 }

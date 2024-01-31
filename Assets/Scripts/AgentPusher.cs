@@ -3,6 +3,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using static UnityEngine.GraphicsBuffer;
+using UnityEngine.Events;
 
 public class AgentPusher : Agent
 {
@@ -12,9 +13,11 @@ public class AgentPusher : Agent
 
     [HideInInspector]
     public Rigidbody agentRb;
-    private GameObject m_target;
+    //private GameObject m_target;
 
-    public GridSensorComponent m_sensor;
+    public UnityEvent collideWithBlock;
+    public GameEnvController m_envController;
+
     public override void Initialize()
     {
         agentRb = GetComponent<Rigidbody>();
@@ -118,12 +121,22 @@ public class AgentPusher : Agent
 
     public override void OnEpisodeBegin()
     {
+        //SetReward(0f);
+        //EndEpisode();
+        m_envController.ResetScene();
+        Debug.Log("Reset!");
     }
 
-
+    /*
     public override void CollectObservations(VectorSensor sensor)
     {
         //sensor.AddObservation(transform.position - m_target.transform.position);
     }
+    */
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("block")) collideWithBlock.Invoke();
     }
+
+}
